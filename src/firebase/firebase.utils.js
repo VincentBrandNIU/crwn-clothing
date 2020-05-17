@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
+const config = {
   apiKey: "AIzaSyALyeABT2hXyUUlYhtLRucKcW3Lxqxrz38",
   authDomain: "crwn-db-ff935.firebaseapp.com",
   databaseURL: "https://crwn-db-ff935.firebaseio.com",
@@ -13,6 +13,9 @@ var firebaseConfig = {
   appId: "1:215690136603:web:23625ac5611353139afcbe",
   measurementId: "G-NYJ55F4S2S",
 };
+
+firebase.initializeApp(config);
+
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) {
     return;
@@ -37,8 +40,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 };
-
-firebase.initializeApp(firebaseConfig);
 
 //google authentication
 export const auth = firebase.auth();
